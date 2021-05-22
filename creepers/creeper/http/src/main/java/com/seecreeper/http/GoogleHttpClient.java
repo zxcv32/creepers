@@ -1,4 +1,4 @@
-package com.seacreeper.queen.service;
+package com.seecreeper.http;
 
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpRequest;
@@ -7,7 +7,7 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import java.io.IOException;
 import lombok.NonNull;
 
-public class HttpService {
+public class GoogleHttpClient {
 
   public static String getWebPageContent(@NonNull final String url) throws IOException {
     HttpRequestFactory requestFactory = new NetHttpTransport().createRequestFactory();

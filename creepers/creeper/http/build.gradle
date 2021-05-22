@@ -1,0 +1,4 @@
+dependencies {
+    implementation 'io.github.java-diff-utils:java-diff-utils:4.5'
+    implementation 'com.google.http-client:google-http-client:1.39.2-sp.1'
+}
