@@ -11,10 +11,10 @@ services:
     ports:
       - "8080:8080/tcp"
     volumes:
-      - pv_queen_temp:/app/pv_queen_temp
+      - queen_volume:/app/volume
 
 networks:
   seacreeper:
 
 volumes:
-  pv_queen_temp:
+  queen_volume:
