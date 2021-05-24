@@ -1,5 +1,6 @@
 package com.seacreeper.queen.controller;
 
+import com.seacreeper.queen.model.WipModel;
 import java.io.IOException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class WipController {
 
   @GetMapping("/test")
-  public String getPage(@RequestParam(value = "url", defaultValue = "Stranger") String url)
+  public WipModel getPage(@RequestParam(value = "url", defaultValue = "Stranger") String url)
       throws IOException {
-    return "Test Page";
+    return new WipModel(url);
   }
 }
