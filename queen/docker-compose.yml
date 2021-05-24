@@ -1,0 +1,20 @@
+version: "3"
+services:
+  queen:
+    build:
+      context: .
+    restart: always
+    image: "seacreeper/queen:latest"
+    container_name: seacreeper-queen
+    networks:
+      - seacreeper
+    ports:
+      - "8080:8080/tcp"
+    volumes:
+      - pv_queen_temp:/app/pv_queen_temp
+
+networks:
+  seacreeper:
+
+volumes:
+  pv_queen_temp:
