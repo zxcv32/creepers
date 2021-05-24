@@ -8,5 +8,4 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="creepers.main" />
   </component>
-  <component name="TestModuleProperties" production-module="creepers.main" />
 </module>
