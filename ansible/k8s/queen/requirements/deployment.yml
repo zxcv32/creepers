@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    project: seacreeper
+    app: queen
+  name: queen
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      project: seacreeper
+      app: queen
+  template:
+    metadata:
+      labels:
+        project: seacreeper
+        app: queen
+    spec:
+      containers:
+        - image: seacreeper/queen:latest
+          name: seacreeper-queen
+          envFrom:
+            - configMapRef:
+                name: seacreeper-queen-spring-env
+          ports:
+            - containerPort: 8080
+              name: api
+          volumeMounts:
+            - name: app-volume
+              mountPath: /app/volume
+      volumes:
+        - name: app-volume
+          persistentVolumeClaim:
+            claimName: queen-app-volume-pvc
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 1000

@@ -1,0 +1,39 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: queen-app-volume
+  labels:
+    directory: app-volume
+    project: seacreeper
+    app: queen
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: nfs
+  mountOptions:
+    - hard
+    - nfsvers=4.1
+  nfs:
+    path: /home/j62k86/samba/k8s/nfs/seacreeper/queen/app-volume
+    server: storage.home.zxcv32.com
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: queen-app-volume-pvc
+spec:
+  storageClassName: nfs
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      directory: app-volume
+      project: seacreeper
+      app: queen
