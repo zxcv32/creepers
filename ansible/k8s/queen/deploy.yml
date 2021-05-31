@@ -17,8 +17,8 @@
       copy:
         src: requirements
         dest: /tmp/
-    - name: Create Queen Volume
-      command: kubectl apply --namespace={{ namespace }} -f /tmp/requirements/storage.yml
+#    - name: Create Queen Volume
+#      command: kubectl apply --namespace={{ namespace }} -f /tmp/requirements/storage.yml
     - name: Create Queen ConfigMap
       command: kubectl apply --namespace={{ namespace }} -f /tmp/requirements/config-map.yml
     - name: Deploy Queen

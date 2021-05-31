@@ -1,10 +1,8 @@
 version: "3"
 services:
   queen:
-    build:
-      context: .
-    restart: always
     image: "seacreeper/queen:latest"
+    restart: always
     container_name: seacreeper-queen
     networks:
       - seacreeper

@@ -27,13 +27,6 @@ spec:
           ports:
             - containerPort: 8080
               name: api
-          volumeMounts:
-            - name: app-volume
-              mountPath: /app/volume
-      volumes:
-        - name: app-volume
-          persistentVolumeClaim:
-            claimName: queen-app-volume-pvc
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000

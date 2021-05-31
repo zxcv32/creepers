@@ -17,6 +17,9 @@ node3.home.zxcv32.com
 [node4]
 node4.home.zxcv32.com
 
+[docker]
+docker.home.zxcv32.com
+
 [all:vars]
 ansible_connection=ssh
 ansible_user='zxcv32'
