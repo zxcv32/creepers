@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: seacreeper-queen-spring-env
-data:
-  spring_profiles_active: "dev"
