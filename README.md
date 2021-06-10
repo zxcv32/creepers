@@ -1,2 +1,2 @@
 # Sea Creeper
-Open Source API Translation &amp; Data Manipulation Platform
+Open Source Data Translation &amp; Manipulation Platform
