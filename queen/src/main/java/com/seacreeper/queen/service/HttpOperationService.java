@@ -17,16 +17,16 @@ public class HttpOperationService {
 
   @Autowired private KafkaTemplate<String, HttpOperation> kafkaTemplate;
 
-  @Value(value = "${com.seacreeper.queen.kafka.topic.http}")
-  private String TOPIC;
+  @Value(value = "${com.seacreeper.kafka.topic.queen.http}")
+  private String topic;
 
   public Status publishToMq(@NonNull final HttpOperation httpOperation) {
-    val future = kafkaTemplate.send(TOPIC, httpOperation);
+    val future = kafkaTemplate.send(topic, httpOperation);
     future.addCallback(
         new ListenableFutureCallback<>() {
           @Override
           public void onFailure(Throwable ex) {
-            log.error("Unable to Task=[" + httpOperation + "] due to: " + ex.getMessage());
+            log.error("Unable to send Task=[" + httpOperation + "] due to: " + ex.getMessage());
           }
 
           @Override

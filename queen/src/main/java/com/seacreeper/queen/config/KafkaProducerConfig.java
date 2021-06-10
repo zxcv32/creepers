@@ -16,24 +16,23 @@ import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
 @Configuration
-public class KafkaConfig {
+public class KafkaProducerConfig {
 
   @Value(value = "${spring.kafka.bootstrap-servers}")
   private String bootstrapServers;
 
   @Bean
   public ProducerFactory<String, HttpOperation> producerFactory() {
-    val config = buildCommonProperties();
-    config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-    config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-    return new DefaultKafkaProducerFactory<>(config);
+    return new DefaultKafkaProducerFactory<>(buildCommonProperties());
   }
 
   private Map<String, Object> buildCommonProperties() {
-    Map<String, Object> properties = new HashMap();
+    val properties = new HashMap<String, Object>();
     if (this.bootstrapServers != null) {
       properties.put("bootstrap.servers", this.bootstrapServers);
     }
+    properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+    properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
     return properties;
   }
 

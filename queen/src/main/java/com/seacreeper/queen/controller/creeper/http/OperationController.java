@@ -1,6 +1,5 @@
 package com.seacreeper.queen.controller.creeper.http;
 
-import com.seacreeper.queen.controller.creeper.OperationNotFoundException;
 import com.seacreeper.queen.model.HttpOperation;
 import com.seacreeper.queen.service.HttpOperationService;
 import javax.validation.Valid;
