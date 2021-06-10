@@ -8,7 +8,6 @@ import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
@@ -31,7 +30,7 @@ public class kafkaListener {
     log.info("Task received: " + task);
     try {
       val httpOperation = objectMapper.readValue(task, HttpOperation.class);
-      httper.query(httpOperation.getUrl());
+      httper.query(httpOperation);
     } catch (JsonProcessingException e) {
       log.error(e.getMessage());
     } catch (IOException e) {
