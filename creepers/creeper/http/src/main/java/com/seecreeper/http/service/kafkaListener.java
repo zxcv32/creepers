@@ -27,7 +27,7 @@ public class kafkaListener {
 
   @KafkaListener(id = "httpRegnantListener", topics = "httpRegnant")
   public void listen(String task) {
-    log.info("Task received: " + task);
+    log.debug("Task received: " + task.substring(0, Math.min(100, task.length())) + "...");
     try {
       val httpOperation = objectMapper.readValue(task, HttpOperation.class);
       httper.query(httpOperation);
