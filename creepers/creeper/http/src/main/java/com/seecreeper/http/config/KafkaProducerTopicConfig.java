@@ -13,7 +13,7 @@ import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.KafkaAdmin;
 
 @Configuration
-public class KafkaTopicConfig {
+public class KafkaProducerTopicConfig {
 
   @Value(value = "${spring.kafka.bootstrap-servers}")
   private String bootstrapServers;
