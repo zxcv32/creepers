@@ -6,19 +6,17 @@
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.5.0/5cf502fee702829dd00f3b7775f5a18e4d5f0473/spring-boot-configuration-processor-2.5.0.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
         </processorPath>
-        <module name="creepers.creeper.tor.main" />
-        <module name="creepers.creeper.file.main" />
-        <module name="creepers.creeper.gpu.main" />
-        <module name="creepers.creeper.http.main" />
-        <module name="creepers.creeper.main" />
-        <module name="creepers.regnant.main" />
+        <module name="craftsperson.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="core.main" target="16" />
       <module name="core.test" target="16" />
+      <module name="craftsman.main" target="16" />
+      <module name="craftsman.test" target="16" />
       <module name="regnant" target="16" />
       <module name="regnant.creeper" target="16" />
       <module name="regnant.creeper.file" target="16" />
