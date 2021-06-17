@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Slf4j
@@ -54,22 +53,5 @@ public class InfluxDbTalker {
       httpScribeMeasurement.setTimestamp(Instant.now());
       writeApi.writeMeasurement(WritePrecision.MS, httpScribeMeasurement);
     }
-  }
-
-  @Async
-  public String read() {
-    val flux = "from(bucket:\"" + influxdbBucket + "\") |> range(start:0)";
-    val queryApi = influxDbClient.getQueryApi();
-    val tables = queryApi.query(flux);
-    val stringBuilder = new StringBuilder();
-    for (val fluxTable : tables) {
-      val fluxRecords = fluxTable.getRecords();
-      for (FluxRecord fluxRecord : fluxRecords) {
-        stringBuilder.append(fluxRecord.getTime() + ": " + fluxRecord.getValueByKey("_value"));
-        stringBuilder.append(System.lineSeparator());
-      }
-    }
-    influxDbClient.close();
-    return stringBuilder.toString();
   }
 }
