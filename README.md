@@ -1,2 +1,3 @@
-# Sea Creeper
-Open Source Data Translation &amp; Manipulation Platform
+# Creepers
+
+Creepers of the unknown sea
